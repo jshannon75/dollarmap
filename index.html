@@ -50,9 +50,9 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        var layer_Basemap_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            opacity: 1.0,
-            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+        var layer_Basemap_0 = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+			subdomains: 'abcd',
             minZoom: 1,
             maxZoom: 28,
             minNativeZoom: 0,
@@ -593,7 +593,6 @@
             style: style_medianincome_6_0,
         });
         bounds_group.addLayer(layer_medianincome_6);
-        map.addLayer(layer_medianincome_6);
         function pop_FamilyDollar_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -754,11 +753,13 @@
         bounds_group.addLayer(layer_DollarGeneral_9);
         map.addLayer(layer_DollarGeneral_9);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/DollarGeneral_9_DollarGeneral0.png" /> Dollar General<br />': layer_DollarGeneral_9,'<img src="legend/DollarTree_8_DollarTree0.png" /> Dollar Tree<br /><table></table>': layer_DollarTree_8,'<img src="legend/FamilyDollar_7_FamilyDollar0.png" /> Family Dollar<br />': layer_FamilyDollar_7,'Median househod income<br /><table><tr><td style="text-align: center;">  <img src="legend/medianincome_6_978146364631974960.png" /></td><td>Lowest</td></tr><tr><td style="text-align: center;"><img src="legend/medianincome_6_148943415625855103424.png" /></td><td>Highest</td></tr></table>': layer_medianincome_6,'Pct African-American<br /><table><tr><td style="text-align: center;"><img src="legend/PctAfricanAmerican_5_080.png" /></td><td>Lowest</td></tr><tr><td style="text-align: center;"><img src="legend/PctAfricanAmerican_5_761004.png" /></td><td>Highest</td></tr></table>': layer_PctAfricanAmerican_5,'Pct Asian-American<br /><table><tr><td style="text-align: center;"><img src="legend/PctAsianAmerican_4_00450.png" /></td><td>Lowest</td></tr><tr><td style="text-align: center;"><img src="legend/PctAsianAmerican_4_4488984.png" /></td><td>Highest</td></tr></table>': layer_PctAsianAmerican_4,'Pct Hispanic<br /><table><tr><td style="text-align: center;"><img src="legend/PctHispanic_3_001140.png" /></td><td>Lowest</td></tr><tr><td style="text-align: center;"><img src="legend/PctHispanic_3_74110004.png" /></td><td>Highest</td></tr></table>': layer_PctHispanic_3,'Pct in poverty<br /><table><tr><td style="text-align: center;"><img src="legend/Pctinpoverty_2_00720.png" /></td><td>Lowest</td></tr><tr><td style="text-align: center;"><img src="legend/Pctinpoverty_2_3647854.png" /></td><td>Highest</td></tr></table>': layer_Pctinpoverty_2,'Metro areas': layer_Metroareas_1,"Basemap": layer_Basemap_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/DollarGeneral_9_DollarGeneral0.png" /> Dollar General<br />': layer_DollarGeneral_9,'<img src="legend/DollarTree_8_DollarTree0.png" /> Dollar Tree<br /><table></table>': layer_DollarTree_8,'<img src="legend/FamilyDollar_7_FamilyDollar0.png" /> Family Dollar<br />': layer_FamilyDollar_7,'<img src="legend/medianincome_6_148943415625855103424.png" /> Median househod income<br />': layer_medianincome_6,'<img src="legend/PctAfricanAmerican_5_761004.png" /> Pct African-American<br />': layer_PctAfricanAmerican_5,'<img src="legend/PctAsianAmerican_4_4488984.png" /> Pct Asian-American<br />': layer_PctAsianAmerican_4,'<img src="legend/PctHispanic_3_74110004.png" /> Pct Hispanic<br />': layer_PctHispanic_3,'<img src="legend/Pctinpoverty_2_3647854.png" /> Pct in poverty<br />': layer_Pctinpoverty_2,'Metro areas': layer_Metroareas_1,"Basemap": layer_Basemap_0,},{collapsed:false}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_Metroareas_1,
             initial: false,
+			collapsed: false,
+			textPlaceholder: 'Metro name',
             hideMarkerOnCollapse: true,
             propertyName: 'NAME'}));
         document.getElementsByClassName('search-button')[0].className +=
